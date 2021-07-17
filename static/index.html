@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Databases Sample App</title>
+</head>
+<body>
+    <label for="database">Database</label>
+    <select id="database" name="database">
+        <option value="" selected>Please choose database:</option>
+        <option value="postgres">PostgresSQL</option>
+        <option value="mongodb">MongoDB</option>
+        <option value="neo4j">Neo4j</option>
+        <option value="redis">Redis</option>
+    </select>
+    <input type="text" placeholder="Search" id="search" />
+    <button id="btn">Search</button>
+    <pre>
+        <code id="code"></code>
+    </pre>
+
+    <script>
+        var btn = document.getElementById('btn');
+        var code = document.getElementById('code');
+        var search = document.getElementById('search');
+        var db = document.getElementById('database');
+
+        btn.addEventListener('click', async function handleClick(){
+            code.innerText = 'loading';
+
+            var res = await fetch(`/get/${db.value}?search=${encodeURIComponent(search.value)}`);
+            var json = await res.json();
+            code.innerText = `\n${JSON.stringify(json, null, 4)}`
+        })
+
+ 
+    </script>
+</body>
+</html>

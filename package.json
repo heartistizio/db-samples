@@ -1,0 +1,19 @@
+{
+	"name": "db-samples",
+	"version": "1.0.0",
+	"main": "index.js",
+	"dependencies": {
+		"dotenv": "^10.0.0",
+		"express": "^4.17.1",
+		"mongodb": "^3.6.2",
+		"pg": "^8.4.1"
+	},
+	"devDependencies": {},
+	"scripts": {
+		"start": "node src/index"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"description": ""
+}
